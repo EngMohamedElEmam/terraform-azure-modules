@@ -1,0 +1,378 @@
+/* 
+output "network-rgName" {
+  value = module.network-rg.rg_name_out
+}
+
+output "databases-rgName" {
+  value = module.databases-rg.rg_name_out
+}
+
+output "storage-rgName" {
+  value = module.storage-rg.rg_name_out
+}
+
+output "platform-rgName" {
+  value = module.platform-rg.rg_name_out
+}
+
+output "aks-rgName" {
+  value = module.aks-rg.rg_name_out
+}
+
+output "logs-rgName" {
+  value = module.logs-rg.rg_name_out
+}
+
+output "monitoring-rgName" {
+  value = module.monitoring-rg.rg_name_out
+}
+
+output "network-rgLocation" {
+  value = module.network-rg.rg_location_out
+}
+
+output "databases-rgLocation" {
+  value = module.databases-rg.rg_location_out
+}
+
+output "storage-rgLocation" {
+  value = module.storage-rg.rg_location_out
+}
+
+output "platform-rgLocation" {
+  value = module.platform-rg.rg_location_out
+}
+
+output "aks-rgLocation" {
+  value = module.aks-rg.rg_location_out
+}
+
+output "logs-rgLocation" {
+  value = module.logs-rg.rg_location_out
+}
+
+output "monitoring-rgLocation" {
+  value = module.monitoring-rg.rg_location_out
+}
+
+output "vnet_id" {
+  description = "The id of the newly created vNet"
+  value       = module.Pharma-VNET.vnet_id
+}
+
+output "vnet_name" {
+  description = "The Name of the newly created vNet"
+  value       = module.Pharma-VNET.vnet_name
+}
+
+output "vnet_address_space" {
+  description = "The address space of the newly created vNet"
+  value       = module.Pharma-VNET.vnet_address_space
+}
+
+output "vnet_subnets" {
+  description = "The ids of subnets created inside the newl vNet"
+  value       = module.Pharma-VNET.vnet_subnets
+}
+
+output "Storage_Account_Name" {
+  value = module.PharmaSA.stg_act_name_out
+}
+
+output "Continer_Name" {
+  value = module.PharmaSA-Blob.container_out
+}
+
+output "Blob_Name" {
+  value = module.PharmaSA-Blob.blob_out
+}
+
+output "Share_Name" {
+  value = module.PharmaSA-Share.share_out
+}
+
+output "Recovery_Vault_Name" {
+  value = module.PharmaSA-Share.recovery_vault_out
+}
+
+output "Backup_Policy_Name" {
+  value = module.PharmaSA-Share.backup_policy_out
+}
+
+output "Container_Backup_Vault_Name" {
+  value = module.PharmaSA-Blob.backup_vault_out
+}
+
+output "primary_connection_string" {
+  description = "The primary connection string for the storage account."
+  value       = module.PharmaSA.primary_connection_string
+  sensitive   = true
+}
+
+output "secondary_connection_string" {
+  description = "The primary connection string for the storage account."
+  value       = module.PharmaSA.secondary_connection_string
+  sensitive   = true
+}
+
+output "primary_access_key" {
+  description = "The primary access key for the storage account."
+  value       = module.PharmaSA.primary_access_key
+  sensitive   = true
+}
+
+output "log_analytics_name" {
+  value = module.PharmaSA-LogWorkSpace.log_analytics
+}
+
+output "log_analytics_blob_log" {
+  value = module.PharmaSA-DiagnosticSettings.log_analytics_bloblog
+}
+
+output "log_analytics_share_log" {
+  value = module.PharmaSA-DiagnosticSettings.log_analytics_sharelog
+}
+
+output "postgre_server_name" {
+    value = module.Pharma-PostgreSQL.postgre_server_name
+}
+
+output "postgre_server_version" {
+    value = module.Pharma-PostgreSQL.postgre_server_version
+}
+
+output "postgre_server_username" {
+    value = module.Pharma-PostgreSQL.postgre_server_username
+}
+
+output "postgre_server_password" {
+    value = module.Pharma-PostgreSQL.postgre_server_password
+    sensitive = true
+}
+
+output "postgre_server_id" {
+    value = module.Pharma-PostgreSQL.postgre_server_id
+}
+
+output "firewall_rules" {
+    value = module.Pharma-PostgreSQL.firewall_rules
+}
+
+output "postgresql_database_id" {
+  description = "The ID of the PostgreSQL Database"
+  value       = module.Pharma-PostgreSQL.postgresql_database_id
+}
+
+output "postgresql_database_name" {
+  description = "The Name of the PostgreSQL Database"
+  value       = module.Pharma-PostgreSQL.postgresql_database_name
+}
+
+output "postgresql_storage_account_logs_name" {
+  description = "The Name of the PostgreSQL Database Logs Storage Account Name"
+  value       = module.PharmaPostgreSQL-Logs.stg_act_name_out
+}
+
+output "App_Insight_Name" {
+  description = "The Name of the Pharma-Insight"
+  value       = module.Pharma-Insight.app_insight_name
+}
+
+output "app_insight_log_analytics" {
+  value = module.PharmaInsight-WorkSpace.log_analytics
+}
+
+output "eventhub_namespace_id" {
+  description = "Id of Event Hub Namespace."
+  value       = module.Pharma-EventHub.namespace_id
+}
+
+output "eventhub_ids" {
+  description = "Map of hubs and their ids."
+  value       = module.Pharma-EventHub.hub_ids
+}
+
+output "eventhub_primary_connection_string" {
+  description = "primary_connection_string of hubs"
+  value       = module.Pharma-EventHub.primary_connection_string
+  sensitive   = true
+}
+
+output "eventhub_secondary_connection_string" {
+  description = "secondary_connection_string of hubs"
+  value       = module.Pharma-EventHub.secondary_connection_string
+  sensitive   = true
+}
+
+output "namespace_primary_connection_string" {
+  description = "primary_connection_string of namespace"
+  value       = module.Pharma-EventHub.primary_connection_string
+  sensitive   = true
+}
+
+output "namespace_secondary_connection_string" {
+  description = "namespace_secondary_connection_string"
+  value       = module.Pharma-EventHub.secondary_connection_string
+  sensitive   = true
+}
+
+output "key_vault_id" {
+  description = "Id of the Key Vault"
+  value       = module.Pharma-keyvault.key_vault_id
+}
+
+output "key_vault_name" {
+  description = "Name of the Key Vault"
+  value       = module.Pharma-keyvault.key_vault_name
+}
+
+output "key_vault_uri" {
+  description = "Uri of the Key Vault"
+  value       = module.Pharma-keyvault.key_vault_uri
+}
+
+output "key_name" {
+  description = "Name of the Key "
+  value       = module.Pharma-keyvault-key.key_name
+}
+
+output "version" {
+  description = "The current version of the Key Vault Key."
+  value       = module.Pharma-keyvault-key.version
+}
+
+output "versionless_id" {
+  description = "The Base ID of the Key Vault Key."
+  value       = module.Pharma-keyvault-key.versionless_id
+}
+
+output "public_key_pem" {
+  description = " The PEM encoded public key of this Key Vault Key."
+  value       = module.Pharma-keyvault-key.public_key_pem
+}
+
+output "cert_name" {
+  description = "Name of the Certificate "
+  value       = module.Pharma-keyvault-importcert.cert_name
+}
+
+output "cert_id" {
+  description = "The Key Vault Certificate ID."
+  value       = module.Pharma-keyvault-importcert.cert_id
+}
+
+output "version_id" {
+  description = "The current version of the Key Vault Certificate."
+  value       = module.Pharma-keyvault-importcert.version_id
+}
+
+output "certificate_data" {
+  description = " The raw Key Vault Certificate data represented as a hexadecimal string."
+  value       = module.Pharma-keyvault-importcert.certificate_data
+}
+
+output "generate_cert_name" {
+  description = "Name of the Certificate "
+  value       =  module.Pharma-keyvault-genracert.cert_name
+}
+
+output "generate_cert_id" {
+  description = "The Key Vault Certificate ID."
+  value       =  module.Pharma-keyvault-genracert.cert_id
+}
+
+output "generate_version_id" {
+  description = "The current version of the Key Vault Certificate."
+  value       = module.Pharma-keyvault-genracert.version_id
+}
+
+output "generate_certificate_data" {
+  description = " The raw Key Vault Certificate data represented as a hexadecimal string."
+  value       =  module.Pharma-keyvault-genracert.certificate_data
+}
+
+output "uai_principal_id" {
+  value     = module.UserAssignedIdentity.principal_id
+}
+
+output "PharmaCosmosDB_id" {
+  description = "The ID of the CosmosDB Account."
+  value       = module.Pharma-CosmosDB.id
+}
+
+output "PharmaCosmosDB_endpoint" {
+  description = "The endpoint used to connect to the CosmosDB account."
+  value       = module.Pharma-CosmosDB.endpoint
+}
+
+output "PharmaCosmosDB_connection_strings" {
+  description = "A list of connection strings available for this CosmosDB account."
+  value       = module.Pharma-CosmosDB.connection_strings
+  sensitive   = true
+}
+
+output "PharmaCosmosDB_databases" {
+  description = "A map with database name with the ID for the database"
+  value       = module.Pharma-CosmosDB.databases
+}
+
+output "aks-rgName" {
+  value = module.aks-rg-local.rg_name_out
+}
+
+output "aks_id" {
+  description = "AKS resource id"
+  value       = module.AKS-pharmav3-local.aks_id
+}
+
+output "aks_name" {
+  description = "Name of the AKS cluster"
+  value       = module.AKS-pharmav3-local.aks_name
+}
+
+output "aks_nodes_pools_ids" {
+  description = "Ids of AKS nodes pools"
+  value       = module.AKS-pharmav3-local.aks_nodes_pools_ids
+}
+
+output "aks_nodes_pools_names" {
+  description = "Names of AKS nodes pools"
+  value       = module.AKS-pharmav3-local.aks_nodes_pools_names
+}
+
+output "aks_user_managed_identity" {
+  value       = module.AKS-pharmav3-local.aks_user_managed_identity
+  description = "The User Managed Identity used by AKS Agents"
+}
+
+output "acr_id" {
+  description = "The Container Registry ID."
+  value       = module.AKSpharmav3-ACR-local.acr_id
+}
+
+output "acr_name" {
+  description = "The Container Registry name."
+  value       = module.AKSpharmav3-ACR-local.acr_name
+}
+
+output "login_server" {
+  description = "The URL that can be used to log into the container registry."
+  value       = module.AKSpharmav3-ACR-local.login_server
+}
+
+output "acr_fqdn" {
+  description = "The Container Registry FQDN."
+  value       = module.AKSpharmav3-ACR-local.acr_fqdn
+}
+
+output "admin_username" {
+  description = "The Username associated with the Container Registry Admin account - if the admin account is enabled."
+  value       = module.AKSpharmav3-ACR-local.admin_username
+}
+
+output "admin_password" {
+  description = "The Password associated with the Container Registry Admin account - if the admin account is enabled."
+  value       = module.AKSpharmav3-ACR-local.admin_password
+  sensitive   = true
+}
+ */

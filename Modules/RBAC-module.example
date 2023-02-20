@@ -1,0 +1,37 @@
+locals {
+  role = {
+  "Reader"  = [data.azuread_user.user5.object_id, data.azuread_user.user4.object_id, data.azuread_user.user3.object_id, data.azuread_user.user2.object_id, data.azuread_user.user1.object_id]
+  "AcrPull" = [data.azuread_user.user5.object_id, data.azuread_user.user4.object_id, data.azuread_user.user3.object_id, data.azuread_user.user2.object_id, data.azuread_user.user1.object_id]
+  }
+}
+
+data "azuread_user" "user1" {
+  user_principal_name = "sara.mohsen@pharma.org"
+}
+
+data "azuread_user" "user2" {
+  user_principal_name = "mohamed.elemam@pharma.org"
+}
+
+data "azuread_user" "user3" {
+  user_principal_name = "ben.sattler@pharma.org"
+}
+
+data "azuread_user" "user4" {
+  user_principal_name = "mark.twin@pharma.org"
+}
+
+data "azuread_user" "user5" {
+  user_principal_name = "mohamed.ahmed@pharma.org"
+}
+ 
+#Example showing deploying multiple assignments to different scopes with different Roles using for_each at the module.
+module "RoleAssignment-local-AcrPull" {
+  for_each             = local.role
+  source               = "./Identity/RoleAssignment"
+
+  role_definition_name = each.key
+  scope_id             = module.AKSpharmav3-ACR-local.acr_id
+  principal_ids        = each.value
+  depends              = [module.AKSpharmav3-ACR-local.acr_id]
+}

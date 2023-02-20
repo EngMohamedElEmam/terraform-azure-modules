@@ -1,0 +1,19 @@
+variable "subscription_id" {
+  type        = string
+  description = "The subscription_id"
+}
+
+variable "tenant_id" {
+  type        = string
+  description = "The tenant_id"
+}
+
+variable "client_id" {
+  type        = string
+  description = "The client_id"
+}
+
+variable "client_secret" {
+  type        = string
+  description = "The client_secret"
+}
